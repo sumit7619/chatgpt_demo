@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom AI Chatbot</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        .response {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Custom AI Chatbot</h1>
+    </header>
+    <div class="container">
+        <form method="POST">
+            <label for="user_input">Enter your text:</label>
+            <textarea id="user_input" name="user_input" rows="5" cols="50">{{ request.form['user_input'] }}</textarea>
+            <button type="submit">Submit</button>
+        </form>
+        {% if response %}
+            <div class="response">
+                <p>{{ response }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
