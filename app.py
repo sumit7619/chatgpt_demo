@@ -3,7 +3,7 @@ from gpt_index import SimpleDirectoryReader, GPTListIndex, GPTSimpleVectorIndex,
 from langchain.chat_models import ChatOpenAI
 import os
 
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = ''
 
 app = Flask(__name__)
 
