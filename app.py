@@ -20,7 +20,7 @@ def construct_index(directory_path):
 
     documents = SimpleDirectoryReader(directory_path).load_data()
 
-    index = GPTSimpleVectorIndex(documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper)
+    index = GPTVectorStoreIndex(documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper)
 
     index.save_to_disk('index.json')
 
@@ -30,7 +30,7 @@ def construct_index(directory_path):
 def index():
     if request.method == 'POST':
         input_text = request.form['user_input']
-        index = GPTSimpleVectorIndex.load_from_disk('index.json')
+        index = GPTVectorStoreIndex.load_from_disk('index.json')
         response = index.query(input_text, response_mode="compact")
         return render_template('index.html', response=response.response,user_input=input_text)
     else:
