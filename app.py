@@ -20,7 +20,7 @@ def construct_index(directory_path):
 
     documents = SimpleDirectoryReader(directory_path).load_data()
 
-    index = GPTVectorStoreIndex(documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper)
+    index = GPTVectorStoreIndex.from_documents(documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper)
 
     index.save_to_disk('index.json')
 
