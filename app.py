@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from gpt_index import SimpleDirectoryReader, GPTListIndex, GPTSimpleVectorIndex, LLMPredictor, PromptHelper
+from llama_index import SimpleDirectoryReader, GPTListIndex, GPTVectorStoreIndex, LLMPredictor, PromptHelper
 from langchain.chat_models import ChatOpenAI
 import os
 
